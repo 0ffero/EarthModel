@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Science - The 'Circle' of the Earth - HTML5 Canvas</title>
+    <script src="js/frameworks/three.min.js"></script>
+    <script src="js/frameworks/STLLoader.js"></script>
+    <script src="js/globals.js"></script>
+    <script src="js/animate.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/input.js"></script>
+
+    <style type="text/css">
+        * { margin: 0; padding: 0; }
+        body { background-color: black; }
+        canvas { display: block; }
+        .info { width: 90%; margin-left: 9%; color: lightblue; }
+        #information { width: 850px; padding: 10px; color: white; font-weight: bold; position: absolute; z-index:10; font-family: monospace; font-size: 16px; opacity: 0.9; background-color: #000613; }
+            .value { color: rgb(58, 206, 78); }
+            button { width: 850px; font-size: 18px; color: #ec0505; font-weight: bold; margin-top: 10px; text-shadow: 1px 1px 1px #380000; }
+    </style>
+</head>
+<body>
+    <div id="information" style="visibility: hidden">
+        <div>Press 'A' to enable/disable axial tilt (tilt: <span id="axialTilt" class="value">TRUE</span>)</div>
+        <div>Press 'G' to show god (current god visible: <span id="g0d" class="value">NONE</span>)</div>
+        <div>Press 'R' to stop earth rotation (spinning: <span id="spinning" class="value">TRUE</span>)</div>
+        <div>Press '-' or '+' to modify time dilation (time dilation currently set to <span id="speed" class="value">0</span>)</div>
+        <div>Press 'C' to show and hide clouds (clouds visible: <span id="clouds" class="value">TRUE</span>)</div>
+        <div class="info">>>> Info: Cloud level is currently 16KM above sea level, as 8KM is too close to the earth and causes clipping at low spacial multipliers (currently set to 10) - more info in console F-12 in chrome and firefox</div>
+        <div>Press 'K' to move camera to view the Kármán boundary (camera position <span id= "camPosition" class="value">DEFAULT</span>)</div>
+        <div class="info">>>> Info: Kármán boundary is at 100KM above sea level</div>
+        <div>Press 'T' to show and change earth texture (current earth map: <span id="earthMap" class="value">texture</span>)</div>
+        <div>Angle Since last full rotation: <span id="rotAngle" class="value">0</span>°</div>
+        <div>Complete rotations since 0T: <span id="rotCount" class="value">0</span></div>
+        <div>Angle change per second (see dilation for conversion to real time): <span id="angleCount" class="value">0</span>°</div>
+        <div>Time since 0T: <span id="time" class="value">0</span>s</div>
+        <div><button id="ok" onclick="moveInfo()">OK</button></div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    window.addEventListener('keydown', userKeyPress);
+    centreInfoBox();
+    init();
+    // start doing shit that makes the shit do shit
+    animate();
+</script>
+
+</html>
