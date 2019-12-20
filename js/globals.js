@@ -10,9 +10,9 @@ var cameraMoving = false;
     var energyDirectionFrom = 0;
     var currentView = 'front';
 
-var earthGeometry;
-var earthMaterial;
-var earthMesh;
+var earthGeometry; var earthMaterial; var earthMesh;
+var sunGeometry; var sunMaterial; var sunMesh; var sunRotationPeriod = 1/2267136; // in deg per second
+
 var controls;
 var fps = 60;
 var timeDilation = 59;

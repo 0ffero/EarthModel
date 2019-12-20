@@ -73,6 +73,24 @@ function addBody(bodyName) {
         kármánLineMesh = new THREE.Mesh( kármánLineGeometry, kármánLineMaterial );
         scene.add(kármánLineMesh);
     }
+
+    if (bodyName=='Sun') {
+        // THE SUN
+        sunGeometry = new THREE.SphereGeometry( 1*multiplier, 64, 64 ); // actual radius of sun 1.391mKm
+        sunTexture = textureLoader.load("textures/sun8K_compressed.jpg");
+        sunMaterial = new THREE.MeshBasicMaterial( { map: sunTexture } ); sunMaterial.name='map';
+        sunMesh = new THREE.Mesh( sunGeometry, sunMaterial );
+        sunMesh.position.x = -35;
+        sunMesh.position.y = 15;
+        scene.add(sunMesh);
+    }
+
+    if (bodyName=='SnowGlobe') {
+        snowGlobeGeometry = new THREE.SphereBufferGeometry(1/2*multiplier, 64, 64, 0, 2*Math.PI, 0, 0.5 * Math.PI);
+        snowGlobeMaterial = new THREE.MeshBasicMaterial( { color: 0xFFFFFF, transparent: true, opacity: 0.9 })
+        snowGlobeMesh = new THREE.Mesh( snowGlobeGeometry, snowGlobeMaterial );
+        scene.add(snowGlobeMesh);
+    }
 }
 
 function loadSTLs() {
