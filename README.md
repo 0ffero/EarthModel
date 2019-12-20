@@ -1,8 +1,7 @@
 # EarthModel
 A simple interactive earth sim
-
+<pre>
 Morning all.
-
 
 So heres a piece of code I put together to simulate the earths rotation.
 
@@ -27,3 +26,4 @@ TO BE DONE
 Sun is currently static.
 Add the moon.
 "Snow globe" mode
+</pre>
