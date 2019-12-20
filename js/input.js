@@ -61,12 +61,16 @@ function userKeyPress(event) {
 
     if (event.code=='ArrowUp') { // MOVE CAMERA UP
         if (cameraMoving==false) {
+            newView = '';
             switch (currentView) {
                 case 'front': newView='above'; break;
                 case 'below': newView='front'; break;
             }
-            moveCamRequest(newView);
-            currentView = newView;
+
+            if (newView!='') {
+                moveCamRequest(newView);
+                currentView = newView;
+            }
         }
     }
 
@@ -76,8 +80,11 @@ function userKeyPress(event) {
                 case 'above': newView='front'; break;
                 case 'front': newView='below'; break;
             }
-            moveCamRequest(newView);
-            currentView = newView;
+            
+            if (newView!='') {
+                moveCamRequest(newView);
+                currentView = newView;
+            }
         }
     }
 }
