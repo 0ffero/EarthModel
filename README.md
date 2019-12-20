@@ -25,5 +25,6 @@ VERSION
 TO BE DONE
 Sun is currently static.
 Add the moon.
-"Snow globe" mode
+"Snow globe" mode <--- This will be done first as it was the point of the demo
+Implement "Flat Earth" <--- Not as easy as it sounds, because their "model" doesnt make sense
 </pre>
